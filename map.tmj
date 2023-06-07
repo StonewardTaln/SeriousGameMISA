@@ -44,39 +44,6 @@
                  "y":0
                 }, 
                 {
-                 "draworder":"topdown",
-                 "id":78,
-                 "name":"clock",
-                 "objects":[
-                        {
-                         "height":7,
-                         "id":23,
-                         "name":"",
-                         "rotation":0,
-                         "type":"",
-                         "visible":true,
-                         "width":14,
-                         "x":766,
-                         "y":195
-                        }, 
-                        {
-                         "height":28,
-                         "id":24,
-                         "name":"clocky-zone",
-                         "rotation":0,
-                         "type":"area",
-                         "visible":true,
-                         "width":32,
-                         "x":765,
-                         "y":195
-                        }],
-                 "opacity":1,
-                 "type":"objectgroup",
-                 "visible":true,
-                 "x":0,
-                 "y":0
-                }, 
-                {
                  "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -552,6 +519,28 @@
                  "width":32,
                  "x":32.0568509882301,
                  "y":158.479236064846
+                }, 
+                {
+                 "height":53,
+                 "id":25,
+                 "name":"clocky",
+                 "rotation":0,
+                 "type":"area",
+                 "visible":true,
+                 "width":60,
+                 "x":768,
+                 "y":171
+                }, 
+                {
+                 "height":59,
+                 "id":26,
+                 "name":"clockPopup",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":80,
+                 "x":783,
+                 "y":75
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -592,7 +581,7 @@
          "y":0
         }],
  "nextlayerid":79,
- "nextobjectid":25,
+ "nextobjectid":27,
  "orientation":"orthogonal",
  "properties":[
         {
