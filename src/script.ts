@@ -42,14 +42,46 @@ function closePopup(){
 }
 
 function runRounds() {
-  //todo
+  var rounds = 0;
+  var enteredCheckpoint = false;
+  let popUp;
+  //without cheat checking (more fields/zones)
+
+  WA.room.area.onEnter('checkpoint').subscribe(() => {
+    console.log(WA.player.name, ' entered zone checkpoint');
+    enteredCheckpoint = true;
+  })
+
+  WA.room.area.onEnter('start-goal').subscribe(() => {
+    console.log(WA.player.name, ' entered zone start');
+    if (enteredCheckpoint) {
+      //innumerate runcounter
+      rounds += 1;
+    }
+    console.log('round: ', rounds);
+    popUp = WA.ui.openPopup("rounds-popup", 'Round: ' + rounds, [{
+      label: "Close",
+        className: "primary",
+        callback: (popup) => {
+            // Close the popup when the "Close" button is pressed.
+            popup.close();
+        }
+    }]);
+
+  //subcribe end
+  });
+
+  // Close the popup when we leave the zone.
+  WA.room.area.onLeave("start-goal").subscribe(() => {
+    popUp.close();//wtf.
+  })
 }
 
 function uhrUhr() {
   console.log('test123');
   //Uhr-Uhr
   WA.room.area.onEnter('clocky').subscribe(() => {
-    console.log('player entered zone ');
+    console.log(WA.player.name, ' entered zone ');
     const today = new Date();
     const time = today.getHours() + ":" + today.getMinutes();
     currentPopup = WA.ui.openPopup("clockPopup", "It's " + time, []);
@@ -62,7 +94,7 @@ function uhrUhr() {
     } else {
       console.log("Error: WA.player.state.foo is not a number.");
     }
-})
+  })
 
 WA.room.area.onLeave('clocky').subscribe(closePopup)
 }
