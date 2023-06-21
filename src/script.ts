@@ -73,7 +73,7 @@ function runRounds() {
 
   // Close the popup when we leave the zone.
   WA.room.area.onLeave("start-goal").subscribe(() => {
-    popUp.close();//wtf.
+    //popUp.close();//wtf.
   })
 }
 
