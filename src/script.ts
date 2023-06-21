@@ -45,6 +45,7 @@ function runRounds() {
   var rounds = 0;
   var enteredCheckpoint = false;
   let popUp;
+  console.log("fixPopup", popUp);
   //without cheat checking (more fields/zones)
 
   WA.room.area.onEnter('checkpoint').subscribe(() => {
