@@ -59,6 +59,7 @@ function runRounds() {
     if (enteredCheckpoint) {
       //innumerate runcounter
       rounds += 1;
+      enteredCheckpoint = false;
     }
     console.log('round: ', rounds);
     popUp = WA.ui.openPopup("rounds-popup", 'Round: ' + rounds, [{
