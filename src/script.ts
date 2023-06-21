@@ -1,5 +1,6 @@
 /// <reference types="@workadventure/iframe-api-typings" />
 
+import { Popup } from "@workadventure/iframe-api-typings";
 import { bootstrapExtra } from "@workadventure/scripting-api-extra";
 
 //tests, examples
@@ -44,8 +45,8 @@ function closePopup(){
 function runRounds() {
   var rounds = 0;
   var enteredCheckpoint = false;
-  let popUp;
-  console.log("fixPopup", popUp);
+  let popUp: Popup;
+  //console.log("fixPopup", popUp);
   //without cheat checking (more fields/zones)
 
   WA.room.area.onEnter('checkpoint').subscribe(() => {
@@ -73,8 +74,10 @@ function runRounds() {
   });
 
   // Close the popup when we leave the zone.
-  WA.room.area.onLeave("start-goal").subscribe(() => {
-    //popUp.close();//wtf.
+  WA.room.area.onLeave('start-goal').subscribe(() => {
+    console.log('leaving');
+    popUp.close();//wtf.
+    
   })
 }
 
