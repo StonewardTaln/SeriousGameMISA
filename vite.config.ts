@@ -8,7 +8,9 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
+                //einbinden von eigenen/localen html-files aus dem root-Verzeichnis
                 index: "./index.html",
+                maps: "./menupage.html",
                 ...getMapsScripts(maps),
             },
         },

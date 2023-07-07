@@ -24,8 +24,11 @@ WA.onInit().then(() => {
   console.log('virable foo: ', WA.player.state.foo);
 
   uhrUhr();
-
   runRounds();
+
+  menus();
+
+  NPCregal();
   
 
   // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
@@ -34,6 +37,55 @@ WA.onInit().then(() => {
   }).catch(e => console.error(e));
 
 }).catch(e => console.error(e));
+
+function NPCregal() {
+  WA.room.area.onEnter('NPCregal').subscribe(() => {
+    console.log("reagl Action")
+    WA.chat.sendChatMessage('Hello, what do you want?', 'Mr Regalo');
+  })
+
+  // Display the choices to the user
+  //displayMessage("Please select an option:\n1. Choice 1\n2. Choice 2");
+}
+
+function menus() {
+  WA.room.area.onEnter('hier-menu').subscribe(() => {
+    console.log('menu');
+
+    //Action Nachricht uber Leerstaste
+    const triggerMessage = WA.ui.displayActionMessage({
+      message: "press 'space' to confirm",
+      callback: () => {
+          WA.chat.sendChatMessage("confirmed", "trigger message logic")
+      }
+    });
+  
+    setTimeout(() => {
+        // later
+        triggerMessage.remove();
+    }, 1000)
+
+    //uber Kaffetassen-Menubutton findbar
+    const menu = WA.ui.registerMenuCommand('menu test',
+    {
+        callback: () => {
+          console.log('test menu');
+          WA.chat.sendChatMessage('test');
+        }
+    })
+
+    const menu2 = WA.ui.registerMenuCommand('menu2 test',
+    {
+      //Website erscheint
+      //iframe: "https://workadventu.re/map-building/wa-maps.md"
+      //eigenes file im root Ordner
+      iframe: "../menupage.html"
+    })
+    
+    
+  })
+  
+}
 
 function closePopup(){
   if (currentPopup !== undefined) {
